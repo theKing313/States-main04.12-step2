@@ -1,0 +1,20 @@
+.sponsors {
+  padding: 96px 0;
+  background-color: #141414;
+  @media screen and (max-width: 768px) {
+    padding: 64px 0;
+  }
+
+  .sponsorsCarousel {
+    height: 105px;
+    padding: 0 8.33vw;
+
+    @media screen and (max-width: 1024px) {
+      padding: 0 64px;
+    }
+
+    @media screen and (max-width: 540px) {
+      padding: 0 32px;
+    }
+  }
+}

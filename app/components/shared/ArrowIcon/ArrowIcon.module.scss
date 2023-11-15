@@ -1,0 +1,18 @@
+.arrow-icon {
+  transition: all 0.2s linear;
+}
+
+.direction {
+  &-right {
+    transform: rotate(90deg);
+  }
+  &-left {
+    transform: rotate(-90deg);
+  }
+  &-bottom {
+    transform: rotate(180deg);
+  }
+  &-up {
+    transform: rotate(0);
+  }
+}

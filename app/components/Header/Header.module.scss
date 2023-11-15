@@ -1,0 +1,362 @@
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(110px);
+  }
+
+  40% {
+    opacity: 0.5;
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUpLinks {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  40% {
+    opacity: 0.5;
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.header {
+  box-sizing: border-box;
+  width: 100%;
+  height: 120px;
+  position: fixed;
+  top: 0;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  padding: 20px 4.16vw;
+  transition: all 0.3s linear;
+  z-index: var(--z-index-header);
+
+  &Transparent {
+    background-color: transparent;
+  }
+  &Black {
+    background-color: #141414;
+  }
+  &White {
+    background-color: #f7f8f6;
+    color: black;
+    .logoBlock,
+    .hamIcon {
+      filter: invert(1);
+    }
+    .navButton {
+      color: black !important;
+    }
+  }
+
+  &Hidden {
+    transform: translateY(-100%);
+  }
+
+  &ChangedHeight {
+    padding: 10px 4.16vw;
+    height: 88px;
+  }
+
+  &Container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  .blockOne,
+  .blockTwo {
+    padding: 0;
+    flex: 1 0 auto;
+    display: flex;
+    list-style: none;
+    align-items: center;
+    gap: 40px;
+  }
+
+  .blockTwo {
+    flex-direction: row-reverse;
+  }
+
+  .logo {
+    &Block {
+      padding: 0 20px;
+      padding-top: 20px;
+      max-width: 240px;
+      transition: all 0.3s linear;
+      opacity: 0;
+      transform: translateY(110px);
+      animation: fadeInUp 1.05s forwards 0.8s;
+
+      &Scrolled {
+        padding-top: 0px;
+      }
+    }
+
+    &Link {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &Image {
+      flex: 0 0 auto;
+      max-width: 100%;
+      width: 10vw;
+      max-height: 4.5vw;
+      transition: all 0.3s linear;
+      object-fit: contain;
+
+      @media screen and (min-width: 961px) {
+        max-height: 3.5vw;
+      }
+    }
+  }
+
+  .navItem {
+    transition: opacity 0.3s ease;
+
+    &:hover {
+      opacity: 0.61;
+    }
+  }
+
+  .navLink {
+    display: block;
+    margin: 0;
+    padding: 0;
+    font-weight: 500;
+    font-size: 11px;
+    line-height: 1.8;
+    letter-spacing: 0.4px;
+    color: inherit;
+    opacity: 0;
+    transform: translateY(20px);
+    cursor: pointer;
+    animation: fadeInUpLinks 1.1s forwards;
+
+    &FirstLeft {
+      animation-delay: 1s;
+    }
+
+    &SecondLeft {
+      animation-delay: 1.1s;
+    }
+
+    &FirstRight {
+      animation-delay: 1s;
+    }
+
+    &SecondRight {
+      animation-delay: 1.1s;
+    }
+
+    &ThirdRight {
+      animation-delay: 1.2s;
+    }
+  }
+
+  .navButton {
+    display: block;
+    border: none;
+    padding: 0;
+    padding-left: 50px;
+    background-color: transparent;
+    font-weight: 500;
+    font-size: 11px;
+    line-height: 1.8;
+    letter-spacing: 0.4px;
+    color: #fff;
+    cursor: pointer;
+  }
+
+  .ham {
+    &burger {
+      display: block;
+      position: relative;
+      margin-left: 24px;
+      width: 32px;
+      height: 32px;
+      border: none;
+      background-color: transparent;
+      cursor: pointer;
+      transition: transform 0.3s linear;
+
+      &Scrolled {
+        transform: translateY(120px);
+
+        &Far {
+          transform: translateY(88px);
+
+          &WithMenu {
+            transform: translateY(0px);
+          }
+        }
+      }
+
+      &:hover {
+        .hamLine:first-child {
+          transform: translateY(calc(-5px - 50%));
+        }
+        .hamLine:last-child {
+          transform: translateY(calc(5px - 50%));
+        }
+      }
+    }
+
+    &Icon {
+      display: block;
+      width: 32px;
+      height: 32px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      transform: translate(-50%, -50%);
+    }
+
+    &Line {
+      display: block;
+      position: absolute;
+      width: 32px;
+      height: 2px;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      transition: transform 0.3s ease;
+
+      &:first-child {
+        transform: translateY(calc(-7px - 50%));
+      }
+
+      &:last-child {
+        transform: translateY(calc(7px - 50%));
+      }
+
+      &Icon {
+        display: block;
+        fill: #fff;
+        width: 32px;
+      }
+    }
+  }
+
+  .container {
+    display: flex;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .header {
+    padding: 10px 40px;
+
+    .logo {
+      &Block {
+        padding-left: 0;
+        height: 68px;
+        display: flex;
+        align-items: center;
+      }
+
+      &Link {
+        display: block;
+        align-items: unset;
+        justify-content: unset;
+      }
+
+      &Image {
+        max-height: 3.5vw;
+        max-width: 10vw;
+
+        &Desktop {
+          display: none;
+        }
+
+        &Mobile {
+          display: block;
+        }
+      }
+    }
+
+    .blockOne,
+    .blockTwo {
+      gap: 28px;
+    }
+
+    .navButton {
+      padding-left: 28px;
+    }
+
+    .hamburger {
+      margin-left: 16px;
+    }
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .header {
+    height: 88px;
+
+    .logo {
+      &Block {
+        height: 68px;
+        width: 127px;
+      }
+
+      &Link {
+        width: 100%;
+        height: 100%;
+      }
+
+      &Image {
+        max-width: 100%;
+        width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+        &Desktop {
+          display: none;
+        }
+
+        &Mobile {
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 560px) {
+  .header {
+    padding: 10px 32px;
+  }
+}
+
+@media screen and (max-width: 260px) {
+  .header {
+    .logo {
+      &Image {
+        max-height: 40px;
+        max-width: 40vw;
+      }
+    }
+
+    .hamburger {
+      margin-left: 0;
+    }
+  }
+}

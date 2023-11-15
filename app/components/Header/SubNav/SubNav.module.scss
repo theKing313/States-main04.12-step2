@@ -1,0 +1,52 @@
+.sub-nav {
+  position: relative;
+  &-button {
+    border: none;
+    padding: 0;
+    background-color: transparent;
+    font-size: 11px;
+    cursor: pointer;
+  }
+  &-modal {
+    min-width: 174px;
+    max-height: 100vh;
+    position: absolute;
+    top: calc(100% + 15px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 32px;
+    transition: opacity 0.3s ease-in-out 0s; // , height 0.3s ease-in-out;
+    pointer-events: auto;
+    cursor: auto;
+    visibility: hidden;
+    opacity: 0;
+    z-index: var(--z-index-header-subnav);
+    background-color: black;
+    .link {
+      color: var(--sybNavCol);
+      transition: 0.2s color;
+
+      &:hover {
+        color: var(--colorBrown);
+      }
+    }
+  }
+  .visible {
+    visibility: visible;
+    opacity: 1;
+  }
+  .arrow-icon {
+    margin-left: 5px;
+  }
+}
+.isBlack {
+  .sub-nav-modal {
+    color: white;
+  }
+  svg {
+    fill: black;
+  }
+}

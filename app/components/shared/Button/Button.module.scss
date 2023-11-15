@@ -1,0 +1,199 @@
+@keyframes rotateLeft {
+  from {
+    transform: translateY(-50%) rotate(0);
+  }
+
+  to {
+    transform: translateY(-50%) rotate(45deg);
+  }
+}
+
+@keyframes rotateRight {
+  from {
+    transform: translateY(-50%) rotate(0);
+  }
+
+  to {
+    transform: translateY(-50%) rotate(-45deg);
+  }
+}
+
+.button {
+  &Scaled {
+    @media screen and (max-width: 600px) {
+      width: 100%;
+    }
+  }
+
+  &-default {
+    font-size: 11px;
+    line-height: 1.8;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+    max-width: 100%;
+    border: 1px solid;
+    border-radius: 0;
+    padding: 22px 68px 22px 40px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: padding 0.4s;
+    display: inline-block;
+    text-align: center;
+    touch-action: manipulation;
+    cursor: pointer;
+    user-select: none;
+    background-image: none;
+    position: relative;
+    z-index: 0;
+
+    color: rgba(254, 254, 254, 1);
+    background-color: rgba(20, 20, 20, 0.98);
+    border-color: rgba(20, 20, 20, 1);
+
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: inherit;
+      z-index: -1;
+      transform: translateX(0px);
+      transition: transform 0.4s ease, background-color 0s linear 0.4s, left 0s linear 0.4s;
+    }
+
+    &::after {
+      content: '';
+      width: 8px;
+      height: 14px;
+      background-color: currentColor;
+      display: block;
+      position: absolute;
+      right: 40px;
+      left: calc(100% - 33px);
+      top: 50%;
+      transform: translate(-15px, -50%);
+      clip-path: path('M8 7.00065C8 7.00065 3.02079 9.96201 0.214319 13.6673L0 13.4718C0.8 11.7051 1.7127 9.15469 4.12194 7.00065C1.7127 4.8448 0.8 2.29434 0 0.527667L0.216166 0.333984C3.02263 4.03387 8 7.00065 8 7.00065Z'
+        );
+      transition: transform 0.4s ease, left 0s linear 0.2s;
+    }
+
+    &:hover {
+      color: #ffffff;
+      background-color: #000000;
+      border-color: rgba(0, 0, 0, 1);
+      padding-left: 68px;
+      padding-right: 40px;
+      outline-width: 0;
+
+      &::before {
+        transform: translateX(100%);
+        left: -100%;
+        transition: transform 0.4s ease, background-color 0s linear 0.4s, left 0s linear 0.4s;
+      }
+
+      &::after {
+        left: 25px;
+        transform: translate(15px, -50%);
+      }
+    }
+  }
+
+  &-close {
+    width: 32px;
+    height: 32px;
+    border: none;
+    background-color: transparent;
+    display: inline-block;
+    transition: opacity 0.3s ease;
+    cursor: pointer;
+
+    &-sideMenu {
+      padding: 0;
+      transition: opacity 0.3s linear;
+
+      &::before {
+        content: '';
+        display: block;
+        width: 33px;
+        height: 3px;
+        background-color: #fff;
+        transform: translateY(-50%) rotate(0deg);
+        clip-path: polygon(0 36%, 50% 0, 100% 36%, 100% 64%, 50% 100%, 0 64%);
+        transition: transform 0.3s ease 0.1s;
+        position: absolute;
+        top: 50%;
+        animation: rotateLeft 0.3s linear both;
+      }
+
+      &::after {
+        content: '';
+        display: block;
+        width: 33px;
+        height: 3px;
+        background-color: #fff;
+        transform: translateY(-50%) rotate(0deg);
+        clip-path: polygon(0 36%, 50% 0, 100% 36%, 100% 64%, 50% 100%, 0 64%);
+        transition: transform 0.3s ease 0.1s;
+        position: absolute;
+        top: 50%;
+        animation: rotateRight 0.3s linear both;
+      }
+
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+  }
+
+  &-in-circle {
+    font-size: 11px;
+    line-height: 1.82;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: #fff;
+    padding: 16px 44px 16px 16px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: padding 0.4s;
+    display: inline-block;
+    text-align: center;
+    touch-action: manipulation;
+    cursor: pointer;
+    user-select: none;
+    background-image: none;
+    position: relative;
+    z-index: 0;
+    background-color: rgba(20, 20, 20, 0.98);
+
+    &::after {
+      content: '';
+      width: 8px;
+      height: 14px;
+      background-color: currentColor;
+      display: block;
+      position: absolute;
+      right: 40px;
+      left: calc(100% - 7px);
+      top: 50%;
+      transform: translate(-15px, -50%);
+      clip-path: path('M8 7.00065C8 7.00065 3.02079 9.96201 0.214319 13.6673L0 13.4718C0.8 11.7051 1.7127 9.15469 4.12194 7.00065C1.7127 4.8448 0.8 2.29434 0 0.527667L0.216166 0.333984C3.02263 4.03387 8 7.00065 8 7.00065Z'
+        );
+      transition: transform 0.4s ease, left 0s linear 0.2s;
+    }
+
+    &-hovered {
+      padding-left: 44px;
+      padding-right: 16px;
+      outline-width: 0;
+
+      &::after {
+        left: 5px;
+        transform: translate(15px, -50%);
+      }
+    }
+  }
+}

@@ -1,0 +1,48 @@
+.lp-arrow {
+  width: 96px;
+  height: 96px;
+  border: 1px solid #36363d;
+  background: transparent;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: border-color 0.6s;
+  position: absolute;
+  z-index: var(--z-index-slider-button);
+  top: calc(45vh - (96px / 2));
+  @media screen and (max-width: 1024px) {
+    display: none;
+  }
+  &--light {
+    border: none;
+    background: #fff;
+  }
+  &--prev {
+    &::after {
+      content: ' ';
+      width: 12px;
+      height: 20px;
+      background-color: #c28563;
+      display: block;
+      clip-path: path(
+        'M8.74228e-07 10C8.74228e-07 10 7.46882 5.55797 11.6785 -2.81045e-08L12 0.293238C10.8 2.94325 9.43095 6.76794 5.81709 10C9.43095 13.2338 10.8 17.0595 12 19.7095L11.6758 20C7.46605 14.4502 8.74228e-07 10 8.74228e-07 10Z'
+      );
+    }
+    left: 91px;
+  }
+  &--next {
+    &::after {
+      content: ' ';
+      width: 12px;
+      height: 20px;
+      background-color: #c28563;
+      display: block;
+      clip-path: path(
+        'M12 10C12 10 4.53118 14.442 0.321478 20L0 19.7068C1.2 17.0567 2.56905 13.2311 6.18291 10C2.56905 6.76622 1.2 2.94054 0 0.290524L0.324249 0C4.53395 5.54982 12 10 12 10Z'
+      );
+    }
+    right: 91px;
+  }
+}

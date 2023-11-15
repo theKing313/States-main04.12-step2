@@ -1,0 +1,34 @@
+.floating-contacts-wrapper {
+  display: none;
+  position: fixed;
+  z-index: var(--z-index-floating-contacts);
+  pointer-events: none;
+  right: 25px;
+  bottom: 70px;
+  @media screen and (max-width: 500px) {
+    display: block;
+  }
+  .floating-contacts {
+    pointer-events: all;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    .item {
+      background-color: black;
+      color: #f1f1f1;
+      width: 50px;
+      height: 50px;
+      box-shadow: 4px 4px 10px 0 rgba(0, 0, 0, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      color: #484b4e;
+      border: none;
+      outline: none;
+      & > svg {
+        fill: white;
+      }
+    }
+  }
+}

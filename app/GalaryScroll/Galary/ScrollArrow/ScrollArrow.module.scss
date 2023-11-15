@@ -1,0 +1,47 @@
+/* Стрелка не активная */
+.slick-arrow.slick-disabled {}
+
+
+
+
+.lp-arrow {
+  &:hover {
+    :global {
+      .cursor-container {
+        transform: scale3d(0, 0, 0);
+      }
+    }
+  }
+
+
+  /* Стрелка */
+  .slick-arrow {}
+
+
+  z-index: 2;
+  cursor: none;
+  background: none;
+  border: none !important;
+
+  // &--light {
+  //   border: none;
+  //   background: #fff;
+  // }
+
+  &--prev {
+    position: absolute;
+    height: 80%;
+    width: 50%;
+    left: 0;
+    bottom: 0;
+  }
+
+  &--next {
+    position: absolute;
+    height: 80%;
+    width: 50%;
+    right: 0;
+    bottom: 0;
+
+  }
+}

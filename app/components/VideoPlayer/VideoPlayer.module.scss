@@ -1,0 +1,121 @@
+.videoPlayer {
+  height: 50vw;
+  width: 100%;
+
+  @media screen and (max-width: 1440px) {
+    height: 640px;
+  }
+  @media screen and (max-width: 768px) {
+    height: 285px;
+  }
+  &ExternalButton {
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: flex;
+  }
+
+  &InternalButton {
+    height: 64px;
+    width: 64px;
+    margin: auto auto;
+    padding: 0;
+    border-radius: 50%;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.2s linear;
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+  }
+
+  &Popup {
+    position: fixed;
+    z-index: var(--z-index-video);
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+    opacity: 0;
+    background-color: rgba(0, 0, 0, 0);
+    visibility: hidden;
+    transition: all 0.3s linear;
+
+    &Open {
+      opacity: 1;
+      background-color: rgba(0, 0, 0, 0.95);
+      visibility: visible;
+    }
+    &Container {
+      width: 100%;
+      height: 100%;
+
+      position: relative;
+      padding: 6% 0 4% 0;
+
+      @media screen and (max-width: 1024px) {
+        display: flex;
+        align-items: center;
+      }
+    }
+
+    &Player {
+      width: 100%;
+      height: 100%;
+      border: none;
+
+      @media screen and (max-width: 1024px) {
+        margin: auto auto;
+      }
+    }
+  }
+}
+
+.closeButtonVideoPlayer {
+  position: absolute;
+  top: 3%;
+  right: 3%;
+  border: none;
+  background-color: transparent;
+  padding: 0;
+  transition: opacity 0.3s linear;
+
+  &::before {
+    content: '';
+    display: block;
+    width: 33px;
+    height: 3px;
+    background-color: #fff;
+    transform: translateY(-50%) rotate(45deg);
+    clip-path: polygon(0 36%, 50% 0, 100% 36%, 100% 64%, 50% 100%, 0 64%);
+    transition: transform 0.3s ease 0.1s;
+    position: absolute;
+    top: 50%;
+  }
+
+  &::after {
+    content: '';
+    display: block;
+    width: 33px;
+    height: 3px;
+    background-color: #fff;
+    transform: translateY(-50%) rotate(-45deg);
+    clip-path: polygon(0 36%, 50% 0, 100% 36%, 100% 64%, 50% 100%, 0 64%);
+    transition: transform 0.3s ease 0.1s;
+    position: absolute;
+    top: 50%;
+  }
+
+  &:hover {
+    opacity: 0.7;
+  }
+}

@@ -1,0 +1,130 @@
+.magazine-wrapper {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  color: white;
+  opacity: 1;
+  margin: 0 20px;
+  width: 45vw;
+  transition: opacity 0.4s;
+
+  @media screen and (max-width: 991px) {
+    width: 60vw;
+    margin: 0 5px;
+  }
+
+  @media screen and (min-width: 1441px) {
+    padding-bottom: 2%;
+  }
+
+  .top,
+  .bottom {
+    transition: max-height 0.4s, opacity 0.4s;
+    overflow: hidden;
+    line-height: 1.7;
+    letter-spacing: 0.5px;
+
+    .title {
+      margin: 0 0 8px;
+      font-size: var(--global-h3-font-size, 48px);
+      font-family: var(--font-italiana);
+      line-height: 1.25;
+      padding: 0;
+      color: #e4dfd8;
+    }
+
+    .subtitle {
+      max-width: 586px;
+      margin: 0 auto;
+      display: -webkit-box; //very strange.. but ok
+      -webkit-line-clamp: 5;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      color: rgb(162, 162, 164);
+
+      &::before,
+      &::after {
+        content: '"';
+      }
+    }
+  }
+
+  .top {
+    @media screen and (max-width: 767px) {
+      max-height: 500px;
+      opacity: 1;
+      margin-left: -20px;
+      margin-right: -20px;
+      margin-bottom: 50px;
+
+      .title {
+        font-size: calc(var(--global-h3-font-size, 48px) * 0.458);
+      }
+    }
+
+    @media screen and (min-width: 1441px) {
+      .title {
+        font-size: calc(100vw * 0.03333333);
+      }
+    }
+  }
+
+  .bottom {
+    opacity: 0;
+
+    @media screen and (max-width: 767px) {
+      max-height: 0;
+    }
+
+    @media screen and (max-width: 560px) {
+      display: none;
+    }
+
+    .title {
+      line-height: 60px;
+    }
+  }
+
+  .image-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    width: 360px;
+    max-width: 100%;
+    height: 500px;
+    background-color: #f2f2f2;
+    overflow: hidden;
+    position: relative;
+    margin-top: 32px;
+
+    @media screen and (max-width: 991px) {
+      width: 441px;
+    }
+
+    @media screen and (max-width: 767px) {
+      margin-bottom: 0;
+      height: 312px;
+      width: 224px;
+    }
+
+    @media screen and (min-width: 1441px) {
+      width: 30vw;
+      height: 35vw;
+    }
+
+    .image {
+      top: 0;
+      left: 0;
+      transition: 0.4s;
+      object-fit: cover;
+
+      &:hover {
+        transform: scale3D(1.2, 1.2, 1);
+        opacity: 0.9;
+      }
+    }
+  }
+}
