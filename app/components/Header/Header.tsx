@@ -12,9 +12,11 @@ import { useResize } from '@/app/hooks/useResize'
 import SideMenu from '../SideMenu'
 import { api } from '@/app/api'
 
+
 type HeaderStyles = 'transparent' | 'white' | 'black'
 
 function Header() {
+
   const [headerStyle, changeHeaderStyle] = useState<HeaderStyles>('transparent')
   const [isHidden, setIsHidden] = useState(false)
   const [isSmall, setIsSmall] = useState(false)
@@ -31,6 +33,7 @@ function Header() {
   }
 
   useEffect(() => {
+
     const handleScroll = () => {
       if (window.scrollY > lastScroll) {
         //scroll down
@@ -73,6 +76,7 @@ function Header() {
           headerHidden: isHidden,
           headerChangedHeight: isSmall,
         })}>
+
         <nav className={cx('headerContainer')}>
           {!!width && width > 1024 && (
             <ul className={cx('blockOne')}>
@@ -87,6 +91,7 @@ function Header() {
               <li className={cx('navItem')}>
                 <Link href='/' className={cx('navLink', 'navLinkSecondLeft')}>
                   HOME SEARCH
+
                 </Link>
               </li>
             </ul>

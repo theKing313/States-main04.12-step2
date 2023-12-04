@@ -12,21 +12,39 @@ import FloatingContacts from './components/FloatingContacts'
 
 import GalaryScroll from './GalaryScroll'
 
+import GoogleOnTop from './components/AuthProvider/GoogleOnTop'
+
+
+
+
+
 export const revalidate = 3600 // revalidate at most every hour
 
+
 export default function HomePage() {
+
   return (
+
     <AOSWrapper>
+      <GoogleOnTop>
+      </GoogleOnTop>
       <Header />
       <Hero />
       <TwoSides />
       <MagazineScroll />
       <Sponsors />
-      {/* <VideoPlayer /> */}
+      <VideoPlayer />
       <GalaryScroll />
       <Contact />
       <Footer />
       <FloatingContacts />
     </AOSWrapper>
+
+
+
+
+
+
+
   )
 }

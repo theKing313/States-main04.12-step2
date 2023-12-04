@@ -1,4 +1,4 @@
-import { Client, Account, Databases, Functions, Storage } from 'appwrite'
+import { Client, Account, Databases, Functions, Storage, Models, ID, Query } from 'appwrite'
 import type {
   HeroBlock,
   TwoSidesBlock,
@@ -18,6 +18,8 @@ class Api {
   blockContentBucket
   otherImagesBucket
   blockHouses
+  blockFav
+  currentAccount: Models.Session | any | null
   constructor() {
     if (instance) {
       throw new Error('New API instance cannot be created!!')
@@ -37,7 +39,9 @@ class Api {
 
 
     this.blockHouses = '654c917198f9d04b38c5'
+    this.blockFav = '65671218b95e72c6ee9f'
 
+    this.currentAccount = null
 
   }
 
@@ -124,6 +128,87 @@ class Api {
     if (block) return JSON.parse(block) as FooterBlock
     else return null
   }
+
+
+
+  checkIsAuth(logout: () => void) {
+
+    if (this.currentAccount !== null) return
+    this.sdk.account.get().catch(logout)
+  }
+
+  async createSession(name: string) {
+    // email: string, password: string
+    if (name === 'google') {
+      const session = await this.sdk.account.createOAuth2Session(
+        "google",
+        // "http://localhost:3000/pages/home-search/account",
+        "http://localhost:3000/pages/home-search/account",
+        "http://localhost:3000/pages/AuthProvider"
+      )
+    } else {
+      const session = await this.sdk.account.createOAuth2Session(
+        "facebook",
+        // "http://localhost:3000/pages/home-search/account",
+        "http://localhost:3000/pages/home-search/account",
+        "http://localhost:3000/pages/AuthProvider"
+      )
+    }
+    const getinfoAcc = await this.sdk.account.get();
+    this.currentAccount = getinfoAcc
+
+    return getinfoAcc
+    // this.currentAccount = d
+    // if (session) this.currentAccount = session
+    // return d
+  }
+
+
+
+
+  async getAccountInfo() {
+    if (this.currentAccount !== null) return
+
+    return await this.sdk.account.get()
+  }
+  async getFavoritesList() {
+
+    let block = await this.sdk.database.listDocuments(this.generalDB, this.blockFav) // '[DATABASE_ID]', '[COLLECTION_ID]'
+
+    if (block) return block.documents as any
+    else return null
+
+  }
+
+  async addToFavoriteList(userID: string | undefined, homeID: string) {
+    let block;
+    if (userID !== undefined) {
+      const promise = await this.sdk.database.listDocuments(this.generalDB, this.blockFav,
+        [
+          Query.limit(1),
+          Query.equal("userID", [userID]),
+          Query.equal("homeID", [homeID]),
+          // userID = userID,
+          // homeID = homeID
+        ]
+      );
+
+      if (promise.documents.length <= 0) {
+        block = this.sdk.database.createDocument(this.generalDB, this.blockFav, ID.unique(), JSON.stringify({ userID: userID, home: homeID, homeID: homeID }));
+      }
+    }
+
+    // [
+    // Query.equal('title', ['Avatar', 'Lord of the Rings']),
+    // Query.greaterThan('year', 1999)
+    // ]
+    // limit=1
+    // userID=id юзера
+    // homeID=id объекта
+    // Если тебе что-то вернётся, значит уже добавили в избранное
+
+  }
+
 }
 
 const api = new Api()

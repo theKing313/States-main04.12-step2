@@ -137,7 +137,7 @@ export default function SideMenu({ isSideMenuOpened, onSideMenuClose }: SideMenu
                     {isSideMenuOpened && <AnimatedSmallLinks text='Elite Global Agents' baseDelay={600} />}
                   </span>
                 </Link>
-                <Link href={'/'} className={cx('sideMenuSmallLink')}>
+                <Link href={'/pages/home-search/account'} className={cx('sideMenuSmallLink')}>
                   <span className={cx('sideMenuSmallLinkContent')}>
                     {isSideMenuOpened && <AnimatedSmallLinks text='My Account' baseDelay={700} />}
                   </span>
