@@ -10,8 +10,12 @@ import { GalaryScrollBlock } from '@/app/api/types'
 import { Galary } from './Galary/Galary'
 import ScrollArrow from './ScrollArrow'
 import { useRef, useState } from 'react'
-import CustomMouse from '../components/shared/CustomMouse'
-import Button from '../components/shared/Button'
+import CustomMouse from '@/app/components/shared/CustomMouse'
+import Button from '@/app/components/shared/Button'
+// import CustomMouse from '../shared/CustomMouse'
+// import Button from '../shared/Button'
+// import CustomMouse from '../components/shared/CustomMouse'
+// import Button from '../components/shared/Button'
 
 
 interface GalaryScrollProps {

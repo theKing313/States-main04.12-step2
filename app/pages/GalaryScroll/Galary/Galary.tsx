@@ -36,7 +36,7 @@ function Galary({ updatedAt, description, features, lat, location, lon, mainPhot
 
         <section className={cx('galary-wrapper', 'item')}>
             <button onClick={(e) => addFav($id)}>add to fav</button>
-            <Link href={`/GalaryScroll/Galary/${$id}`} className="gallery-card " data-slick-index="0" aria-hidden="false" >
+            <Link href={`pages/GalaryScroll/Galary/${$id}`} className="gallery-card " data-slick-index="0" aria-hidden="false" >
                 <div className={cx('image-wrapper')}>
                     <Image className={cx('image')} src={mainPhoto} fill={true} alt={features} />
                 </div>

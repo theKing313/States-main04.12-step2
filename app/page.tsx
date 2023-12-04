@@ -10,10 +10,11 @@ import MagazineScroll from './components/MagazinesScroll'
 import VideoPlayer from './components/VideoPlayer'
 import FloatingContacts from './components/FloatingContacts'
 
-import GalaryScroll from './GalaryScroll'
+// import GalaryScroll from './GalaryScroll'
 
 import GoogleOnTop from './components/AuthProvider/GoogleOnTop'
-
+import GalaryScroll from './pages/GalaryScroll'
+// import GalaryScroll from './components/GalaryScroll'
 
 
 
